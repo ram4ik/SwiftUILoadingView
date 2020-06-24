@@ -8,8 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isLoading = false
+    
     var body: some View {
-        Text("Hello, world!").padding()
+        Group {
+            if isLoading {
+                ProgressView("Loading...")
+            } else {
+                Button(action: {
+                    isLoading.toggle()
+                }, label: {
+                    /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
+                })
+            }
+        }
     }
 }
 
